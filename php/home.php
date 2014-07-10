@@ -17,7 +17,7 @@
 				font-size: 14px;
 				font-weight: bold;
 			}
-			#header, #option-list{
+			#header, #option-list, #footer{
 				width: 300px;
 				margin: auto;
 				text-align: center;
@@ -46,6 +46,11 @@
 				<li><a href="add_contact.php">Add a Contact</a></li>
 				<li><a href="add_log.php">Add a Log</a></li>
 			</ul>
+		</div>
+		<div id="footer">
+			<br style="clear: both;"></br>
+			<hr />
+			<a href="home.php">Home</a>
 		</div>
 	</body>
 </html>

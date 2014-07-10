@@ -13,6 +13,11 @@
 				width: 300px;
 				margin: auto;
 			}
+			#footer{
+				width: 300px;
+				margin: auto;
+				text-align: center;
+			}
 			label{
 				float: left;
 			}
@@ -44,6 +49,11 @@
 					<input class="button" type="submit" value="Sign In"></input>
 				</p>
 			</form>
+		</div>
+		<div id="footer">
+			<br style="clear: both;"></br>
+			<hr />
+			<a href="php/home.php">Home</a>
 		</div>
 	</body>
 

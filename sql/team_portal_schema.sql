@@ -5,42 +5,43 @@ create database placements;
 
 use placements;
 
-create table company(
+create table companies(
 	company_id int not null auto_increment,
 	company_name varchar(255) not null,
 	primary key (company_id),
 	unique (company_name) );
+	
+insert into companies(company_name) values ('Google'), ('Microsoft'), ('S&P CapitalIQ');
 
-create table hr(
-	hr_id int not null auto_increment,
-	hr_name varchar(500) not null,
-	company_id int not null,
-	email varchar(100),
-	info varchar(5000),
-	primary key (hr_id),
-	foreign key (company_id) references company(company_id) on delete cascade on update cascade );
-
-create table contact(
+create table contacts(
 	contact_id int not null auto_increment,
-	hr_id int not null,
-	contact_number varchar(20) not null,
+	contact_name varchar(100) not null,
+	company_id int not null,
+	contact_email varchar(100),
+	contact_number varchar(200),
+	contact_info varchar(5000),
 	primary key (contact_id),
-	foreign key (hr_id) references hr(hr_id) on delete cascade on update cascade );
+	unique (contact_name, company_id),
+	foreign key (company_id) references companies(company_id) on delete cascade on update cascade );
+
+/*create table contact_number(
+	contact_id int not null auto_increment,
+	person_id int not null,
+	contact_num varchar(20) not null,
+	primary key (contact_id),
+	foreign key (person_id) references company_people(person_id) on delete cascade on update cascade );*/
 
 create table contact_log(
 	log_id int not null auto_increment,
 	log_time datetime not null,
-	hr_id int not null,
-	remark varchar(5000),
+	contact_id int not null,
+	log_remark varchar(5000) not null,
 	primary key (log_id),
-	foreign key (hr_id) references hr(hr_id) on delete cascade on update cascade );
+	foreign key (contact_id) references contacts(contact_id) on delete cascade on update cascade );
 
 create table team_members(
 	member_id varchar(20) not null,
 	member_password varchar(40) not null,
 	primary key (member_id) );
-
-create user 'tnpteam'@'localhost' identified by 'tnpteam2014';
-grant all privileges on placements.* to 'tnpteam'@'localhost';
 
 insert into team_members values ('kumar.harsha', SHA1('MoluHarsha'));
