@@ -66,6 +66,12 @@
 			input.button{
 				float: right;
 			}
+			#msg{
+				color: red;
+			}
+			#footer a{
+				padding: 5px;
+			}
 		</style>
 	</head>
 	
@@ -89,7 +95,14 @@
 								while ( $row = mysqli_fetch_row($result) )
 								{
 						?>
-						<option value=" <?php echo $row[0]; ?> "> <?php echo $row[1]; ?> </option>
+						<option value="<?php echo $row[0]; ?>"
+							<?php if ( isset($_GET['c']) )
+									{
+										if ( strcmp($_GET['c'], $row[0]) == 0 )
+											echo 'selected';
+									} ?> >
+							<?php echo $row[1]; ?> 
+						</option>
 						<?php
 								}
 								mysqli_free_result($result);
@@ -150,6 +163,7 @@
 			<br style="clear: both;"></br>
 			<hr />
 			<a href="home.php">Home</a>
+			<a href="logout.php">Logout</a>
 		</div>
 	</body>
 </html>

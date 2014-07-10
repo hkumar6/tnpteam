@@ -65,6 +65,9 @@
 			input.button{
 				float: right;
 			}
+			#footer a{
+				padding: 5px;
+			}
 		</style>
 	</head>
 	
@@ -97,6 +100,7 @@
 			<br style="clear: both;"></br>
 			<hr />
 			<a href="home.php">Home</a>
+			<a href="logout.php">Logout</a>
 		</div>
 	</body>
 </html>
