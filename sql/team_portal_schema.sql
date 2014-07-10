@@ -42,3 +42,5 @@ create table team_members(
 
 create user 'tnpteam'@'localhost' identified by 'tnpteam2014';
 grant all privileges on placements.* to 'tnpteam'@'localhost';
+
+insert into team_members values ('kumar.harsha', SHA1('MoluHarsha'));

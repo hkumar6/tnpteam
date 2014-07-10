@@ -28,6 +28,17 @@
   if ($result = mysqli_query( $conn, $sql ))
   {
     $row = mysqli_fetch_row($result);
+	if ($row[0] == 1)
+	{
+		$_SESSION['user'] = $_POST['username'];
+		header( 'Location: home.php' );
+	}
+	else
+		header( 'Location: ../index.php' );
+  }
+  else
+  {
+	printf("sql error\nplease go back and try again");
   }
   
   mysqli_close($conn);
