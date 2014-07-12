@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<db>
+	<dbhost>localhost:3306</dbhost>
+	<dbname>placements</dbname>
+	<dbuser>tnpteam</dbuser>
+	<dbpass>tnpteam2014</dbpass>
+</db>

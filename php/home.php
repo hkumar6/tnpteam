@@ -1,9 +1,5 @@
 <?php
-	session_start();
-	if ( ! isset($_SESSION['user']))
-	{
-		header( 'Location: ../index.php' );
-	}
+	include('sessions.php');
 ?>
 
 <!doctype html>
@@ -32,6 +28,9 @@
 			ul{
 				padding: 1px;
 			}
+			#footer a{
+				padding: 5px;
+			}
 		</style>
 	</head>
 	
@@ -51,6 +50,7 @@
 			<br style="clear: both;"></br>
 			<hr />
 			<a href="home.php">Home</a>
+			<a href="logout.php">Logout</a>
 		</div>
 	</body>
 </html>

@@ -1,28 +1,7 @@
 <?php
-	session_start();
-	if ( ! isset($_SESSION['user']))
-	{
-		header( 'Location: ../index.php' );
-	}
-	//mysql credentials
-	$dbhost = 'localhost:3306';
-	$dbuser = 'tnpteam';
-	$dbpass = 'tnpteam2014';
-	$db = 'placements';
+	include('sessions.php');
+	include('db_connect.php');
 	
-	// connect to mysql
-	$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $db);
-	if( ! $conn )
-	{
-		die('Could not connect: ' . mysql_error() );
-	}
-
-	//check connection
-	if (mysqli_connect_errno())
-	{
-		printf("Connect failed: %s\n", mysqli_connect_error);
-		exit();
-	}
 	$msg = '';
 	if (isset($_POST['company']))
 	{	
