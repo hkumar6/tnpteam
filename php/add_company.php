@@ -1,19 +1,34 @@
 <?php
 	include('sessions.php');
 	include('db_connect.php');
+	include('generatekey.php');
 	
 	$msg = '';
 	if (isset($_POST['company']))
-	{	
-		//query
-		$sql = "insert into companies(company_name) values ('". $_POST['company'] . "')";
-		if ( mysqli_query( $conn, $sql) )
+	{
+		//check if the company exists in the db
+		$exists = 0;
+		//echo generateKey($_POST['company']);
+		$sql = "select company_name from companies where company_key='". generateKey($_POST['company']) ."'";
+		if ( $result = mysqli_query($conn, $sql) )
 		{
-			$msg = "Company added successfully!";
+			if ($row = mysqli_fetch_array ($result))
+			{
+				$msg = $row[0]." already exists in the DB.";
+				$exists = 1;
+			}
 		}
-		else
+		if ( !$exists )
 		{
-			$msg = "Some error occured. Please try again!";
+			$sql = "insert into companies(company_name, company_key) values ('". $_POST['company'] . "', '". generateKey($_POST['company']) ."')";
+			if ( mysqli_query( $conn, $sql) )
+			{
+				$msg = "Company added successfully!";
+			}
+			else
+			{
+				$msg = "Some error occured. Please try again!";
+			}
 		}
 	}
 	mysqli_close($conn);

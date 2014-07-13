@@ -8,8 +8,9 @@ use placements;
 create table companies(
 	company_id int not null auto_increment,
 	company_name varchar(255) not null,
+	company_key varchar(255) not null,
 	primary key (company_id),
-	unique (company_name) );
+	unique (company_key) );
 	
 insert into companies(company_name) values ('Google'), ('Microsoft'), ('S&P CapitalIQ');
 
