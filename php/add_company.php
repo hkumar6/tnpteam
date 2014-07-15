@@ -66,12 +66,7 @@
 	</head>
 	
 	<body>
-		<div id="header">
-			<h1>TNP Team Portal</h1>
-			<hr />
-			<h2>Add a new Company</h2>
-			<hr />
-		</div>
+		<?php include('header.php'); ?>
 		<div id="add-company">
 			<form method="post" action="add_company.php">
 				<p>

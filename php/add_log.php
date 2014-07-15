@@ -16,8 +16,6 @@
 			$msg = "Some error occured. Please try again!";
 		}
 	}
-	
-	mysqli_close($conn);
 ?>
 
 
@@ -57,12 +55,7 @@
 	</head>
 	
 	<body>
-		<div id="header">
-			<h1>TNP Team Portal</h1>
-			<hr />
-			<h2>Add a Conversation log</h2>
-			<hr />
-		</div>
+		<?php include('header.php'); ?>
 		<div id="company">
 			<form method="get" action="add_log.php">
 				<p>

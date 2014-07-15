@@ -5,14 +5,19 @@ create database placements;
 
 use placements;
 
+create table team_members(
+	member_id varchar(20) not null,
+	member_password varchar(40) not null,
+	primary key (member_id) );
+
 create table companies(
 	company_id int not null auto_increment,
 	company_name varchar(255) not null,
 	company_key varchar(255) not null,
+	member_id varchar(20),
 	primary key (company_id),
-	unique (company_key) );
-	
-insert into companies(company_name) values ('Google'), ('Microsoft'), ('S&P CapitalIQ');
+	unique (company_key),
+	foreign key (member_id) references team_members(member_id) on delete set null on update cascade);
 
 create table contacts(
 	contact_id int not null auto_increment,
@@ -39,10 +44,5 @@ create table contact_log(
 	log_remark varchar(5000) not null,
 	primary key (log_id),
 	foreign key (contact_id) references contacts(contact_id) on delete cascade on update cascade );
-
-create table team_members(
-	member_id varchar(20) not null,
-	member_password varchar(40) not null,
-	primary key (member_id) );
 
 insert into team_members values ('kumar.harsha', SHA1('MoluHarsha'));

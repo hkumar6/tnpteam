@@ -17,8 +17,6 @@
 			$msg = "Some error occured. Please try again!";
 		}
 	}
-	
-	mysqli_close($conn);
 ?>
 
 <!doctype html>
@@ -57,12 +55,7 @@
 	</head>
 	
 	<body>
-		<div id="header">
-			<h1>TNP Team Portal</h1>
-			<hr />
-			<h2>Add a new Contact</h2>
-			<hr />
-		</div>
+		<?php include('header.php'); ?>
 		<div id="add-contact">
 			<form method="post" action="add_contact.php">
 				<p>
